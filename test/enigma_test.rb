@@ -1,5 +1,4 @@
 require './test/test_helper'
-require './lib/enigma'
 
 class EnigmaTest < Minitest::Test
 
@@ -9,7 +8,7 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
-  def test_encrypt_creates_a_hash
+  def test_message_is_encrypted
     enigma = Enigma.new
 
     expected = {
@@ -22,7 +21,8 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_decrypt_creates_a_hash
+  def test_message_is_decrypted
+    skip
     enigma = Enigma.new
 
     expected =  {
@@ -36,6 +36,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_you_can_encrypt_a_message_with_todays_date
+    skip
     enigma = Enigma.new
     encrypted = enigma.encrypt("hello world", "02715")
 
@@ -48,6 +49,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_you_can_decrypt_a_message_with_todays_date
+    skip
     enigma = Enigma.new
 
     expected =  {
@@ -61,11 +63,12 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_you_can_generate_a_random_key
+    skip
     enigma = Enigma.new
 
     expected =  {
      decryption: "hello world",
-     key: #random?,
+     key: "random",
      date: "210219"
   }
     actual = enigma.encrypt("hello world")
