@@ -1,7 +1,7 @@
-require_relative './date'
+require './lib/date'
 
 class Enigma
-  include Date
+  include TodaysDate
 
   def initialize
   end
