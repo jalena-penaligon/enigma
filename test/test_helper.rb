@@ -7,3 +7,4 @@ require 'pry'
 
 require './lib/enigma'
 require './lib/encryption'
+require './lib/date'
