@@ -3,12 +3,11 @@ class Encryption
 
   def initialize(message)
     @message = message
-    @encrypted = " "
   end
 
-  def self.encrypt(message)
+  def self.run(message)
     encryption = Encryption.new(message)
-    encryption.encrypted
+    encryption.message
   end
 
 end
