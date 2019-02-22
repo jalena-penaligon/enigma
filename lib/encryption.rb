@@ -6,4 +6,9 @@ class Encryption
     @encrypted = " "
   end
 
+  def self.encrypt(message)
+    encryption = Encryption.new(message)
+    encryption.encrypted
+  end
+
 end
