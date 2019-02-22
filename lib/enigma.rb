@@ -1,4 +1,7 @@
+require './lib/date'
+
 class Enigma
+  include TodaysDate
 
   def initialize
   end
