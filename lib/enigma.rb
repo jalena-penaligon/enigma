@@ -1,4 +1,7 @@
+require_relative './date'
+
 class Enigma
+  include Date
 
   def initialize
   end
