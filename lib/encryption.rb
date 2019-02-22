@@ -1,12 +1,14 @@
 class Encryption
-  attr_reader :message, :encrypted
+  attr_reader :message, :key, :date
 
-  def initialize(message)
+  def initialize(message, key, date)
     @message = message
+    @key = key
+    @date = date
   end
 
-  def self.run(message)
-    encryption = Encryption.new(message)
+  def self.run(message, key, date)
+    encryption = Encryption.new(message, key, date)
     encryption.message
   end
 
