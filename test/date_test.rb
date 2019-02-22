@@ -10,20 +10,17 @@ class DateTest < Minitest::Test
 
   def test_you_can_split_todays_date
     enigma = Enigma.new
+    date = enigma.create_date
 
-    assert_equal ["2019", "02", "22"], enigma.date_split
+    assert_equal ["2019", "02", "22"], enigma.date_split(date)
   end
 
   def test_year_is_last_2_characters
     enigma = Enigma.new
+    date = enigma.create_date
+    date = enigma.date_split(date)
 
-    assert_equal ["19", "02", "22"], enigma.date_slice
-  end
-
-  def test_year_is_last_2_characters
-    enigma = Enigma.new
-
-    assert_equal ["19", "02", "22"], enigma.date_slice
+    assert_equal ["19", "02", "22"], enigma.date_slice(date)
   end
 
   def test_date_prints_DDMMYY
@@ -31,5 +28,5 @@ class DateTest < Minitest::Test
 
     assert_equal "220219", enigma.todays_date
   end
-  
+
 end
