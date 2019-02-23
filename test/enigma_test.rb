@@ -8,6 +8,14 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
+  def test_create_key_makes_a_random_key
+    enigma = Enigma.new
+    key = enigma.create_key
+
+    assert_equal 5, key.length
+    assert_equal String, key.class
+  end
+
   def test_message_is_encrypted
     skip
     enigma = Enigma.new
@@ -73,7 +81,7 @@ class EnigmaTest < Minitest::Test
 
     expected =  {
      decryption: "hello world",
-     key: "random",
+     key: key,
      date: "210219"
   }
     actual = enigma.encrypt("hello world", date, key)
