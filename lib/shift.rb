@@ -14,6 +14,17 @@ module Shift
     last_four = squared.split(//).last(4)
     last_four.map do |num|
       num.to_i
+    end
+  end
+
+  def combine
+    key_values.zip(offset_values)
+  end
+
+  def shift_values
+    keys_and_offsets = combine
+    keys_and_offsets.map do |values|
+      values[0] + values[1]
     end 
   end
 
