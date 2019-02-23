@@ -35,6 +35,6 @@ class EncryptionTest < Minitest::Test
   def test_message_can_be_shifted
     encryption = Encryption.run("hello world end", "08304", "291018")
 
-    assert_equal "vjqtbeaweqihssi", encryption.shift_message
+    assert_equal "vjqtbeaweqihssi", encryption
   end
 end
