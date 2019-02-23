@@ -1,4 +1,8 @@
+require './lib/shift'
+
 class Encryption
+  include Shift
+
   attr_reader :message, :key, :date
 
   def initialize(message, key, date)
