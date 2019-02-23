@@ -15,9 +15,14 @@ class ShiftTest < Minitest::Test
   end
 
   def test_zip_keys_and_offsets
-    skip
     encryption = Encryption.new("hello world end", "08304", "291018")
 
-    assert_equal [[8, 6], [83, 3], [30, 2], [4, 4]]
+    assert_equal [[8, 6], [83, 3], [30, 2], [4, 4]], encryption.combine
+  end
+
+  def test_sum_keys_and_offsets
+    encryption = Encryption.new("hello world end", "08304", "291018")
+
+    assert_equal [14, 86, 32, 8], encryption.shift_values
   end
 end
