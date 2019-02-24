@@ -32,23 +32,23 @@ class EncryptionTest < Minitest::Test
     assert_equal String, encryption.class
   end
 
-  def test_print_message_letters_and_index_plus_1
+  def test_print_message_letters_and_index
     encryption = Encryption.new("hello world end", "08304", "291018")
-    expected = [["h", 1], ["e", 2], ["l",3],
-                ["l", 4], ["o", 5], [" ", 6],
-                ["w", 7], ["o", 8], ["r", 9],
-                ["l", 10], ["d", 11], [" ", 12],
-                ["e", 13], ["n", 14], ["d", 15]]
+    expected = [["h", 0], ["e", 1], ["l",2],
+                ["l", 3], ["o", 4], [" ", 5],
+                ["w", 6], ["o", 7], ["r", 8],
+                ["l", 9], ["d", 10], [" ", 11],
+                ["e", 12], ["n", 13], ["d", 14]]
     assert_equal expected, encryption.find_letter_and_index
   end
 
-  def test_assign_index_value_between_1_and_4
+  def test_assign_index_value_between_0_and_3
     encryption = Encryption.new("hello world end", "08304", "291018")
-    expected = [["h", 1], ["e", 2], ["l",3],
-                ["l", 4], ["o", 1], [" ", 2],
-                ["w", 3], ["o", 4], ["r", 1],
-                ["l", 2], ["d", 3], [" ", 4],
-                ["e", 1], ["n", 2], ["d", 3]]
+    expected = [["h", 0], ["e", 1], ["l",2],
+                ["l", 3], ["o", 0], [" ", 1],
+                ["w", 2], ["o", 3], ["r", 0],
+                ["l", 1], ["d", 2], [" ", 3],
+                ["e", 0], ["n", 1], ["d", 2]]
     assert_equal expected, encryption.assign_shift_index
   end
 
