@@ -62,6 +62,16 @@ class EncryptionTest < Minitest::Test
     assert_equal expected, encryption.assign_shift_value
   end
 
+  def test_find_letter_shift_value
+    encryption = Encryption.new("hello world end", "08304", "291018")
+    expected = [[7, 14], [4, 86], [11,32],
+                [11, 8], [14, 14], [26, 86],
+                [22, 32], [14, 8], [17, 14],
+                [11, 86], [3, 32], [26, 8],
+                [4, 14], [13, 86], [3, 32]]
+    assert_equal expected, encryption.assign_letter_shift
+  end
+
   def test_message_can_be_shifted
     skip
     encryption = Encryption.run("hello world end", "08304", "291018")
