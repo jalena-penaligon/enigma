@@ -40,12 +40,23 @@ class Encryption
     end
   end
 
+  def assign_letter_shift
+    alphabet = ("a".."z").to_a << " "
+    letter_shift = assign_shift_value
+    letter_shift.each do |letter_and_index|
+      letter_and_index[0] = alphabet.index(letter_and_index[0])
+    end
+    letter_shift
+  end
+
   def shift_message
     alphabet = ("a".."z").to_a << " "
+    letter_shift = assign_shift_value
+    letter_shift.each do |letter_and_index|
+      letter_and_index[0] = alphabet.index(letter_and_index[0])
+    end
+    letter_shift
 
-    shift_by = shift_values
-
-    # binding.pry
   end
 
 end
