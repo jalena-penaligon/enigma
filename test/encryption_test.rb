@@ -32,7 +32,18 @@ class EncryptionTest < Minitest::Test
     assert_equal String, encryption.class
   end
 
+  def test_print_message_letters_and_index_plus_1
+    encryption = Encryption.run("hello world end", "08304", "291018")
+    expected = [["h", 1], ["e", 2], ["l",3],
+                ["l", 4], ["o", 5], [" ", 6],
+                ["w", 7], ["o", 8], ["r", 9],
+                ["l", 10], ["d", 10], [" ", 11],
+                ["e", 12], ["n", 13], ["d", 14]]
+    assert_equal "vjqtbeaweqihssi", encryption.find_letter_and_index
+  end
+
   def test_message_can_be_shifted
+    skip
     encryption = Encryption.run("hello world end", "08304", "291018")
 
     assert_equal "vjqtbeaweqihssi", encryption
