@@ -17,7 +17,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_message_is_encrypted
-    skip
     enigma = Enigma.new
 
     expected = {
