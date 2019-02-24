@@ -73,7 +73,12 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_message_can_be_shifted
-    skip
+    encryption = Encryption.new("hello world end", "08304", "291018")
+
+    assert_equal "vjqtbeaweqihssi", encryption.shift_message
+  end
+
+  def test_run_combines_all_steps
     encryption = Encryption.run("hello world end", "08304", "291018")
 
     assert_equal "vjqtbeaweqihssi", encryption
