@@ -24,6 +24,17 @@ class Encryption
     message_and_index
   end
 
+  def assign_shift_index
+    shift_index = find_letter_and_index
+    shift_index.each do |letter_and_index|
+      if letter_and_index[1] > 4 && letter_and_index[1] % 4 != 0
+        letter_and_index[1] = letter_and_index[1] % 4
+      elsif letter_and_index[1] > 4 && letter_and_index[1] % 4 == 0
+        letter_and_index[1] = 4
+      end
+    end
+  end
+
   def shift_message
     alphabet = ("a".."z").to_a << " "
 
