@@ -3,7 +3,8 @@ require './lib/shift'
 class Encryption
   include Shift
 
-  attr_reader :message, :key, :date
+  attr_reader :key, :date
+  attr_accessor :message
 
   def initialize(message, key, date)
     @message = message
@@ -13,8 +14,7 @@ class Encryption
 
   def self.run(message, key, date)
     encryption = Encryption.new(message, key, date)
-    encryption.shift_message
-    encryption.message
+    encryption.message = encryption.shift_message
   end
 
   def find_letter_and_index
@@ -51,12 +51,13 @@ class Encryption
 
   def shift_message
     alphabet = ("a".."z").to_a << " "
-    letter_shift = assign_shift_value
-    letter_shift.each do |letter_and_index|
-      letter_and_index[0] = alphabet.index(letter_and_index[0])
+    rotate_values = assign_letter_shift
+    message = []
+    rotate_values.each do |letter_and_index|
+      rotate_by = letter_and_index[0] + letter_and_index[1]
+      message << alphabet.rotate(rotate_by).first
     end
-    letter_shift
-
+    message.join("")
   end
 
 end
