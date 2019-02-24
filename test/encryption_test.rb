@@ -42,6 +42,16 @@ class EncryptionTest < Minitest::Test
     assert_equal expected, encryption.find_letter_and_index
   end
 
+  def test_assign_index_value_between_1_and_4
+    encryption = Encryption.new("hello world end", "08304", "291018")
+    expected = [["h", 1], ["e", 2], ["l",3],
+                ["l", 4], ["o", 1], [" ", 2],
+                ["w", 3], ["o", 4], ["r", 1],
+                ["l", 2], ["d", 3], [" ", 4],
+                ["e", 1], ["n", 2], ["d", 3]]
+    assert_equal expected, encryption.assign_shift_index
+  end
+
   def test_message_can_be_shifted
     skip
     encryption = Encryption.run("hello world end", "08304", "291018")
