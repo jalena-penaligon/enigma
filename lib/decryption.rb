@@ -12,7 +12,7 @@ class Decryption
 
   def self.run(message, key, date)
     decryption = Decryption.new(message, key, date)
-    decryption.message
+    decryption.message = decryption.shift_message
   end
 
   def find_letter_and_index
@@ -52,7 +52,7 @@ class Decryption
     rotate_values = assign_letter_shift
     message = []
     rotate_values.each do |letter_and_index|
-      rotate_by = letter_and_index[0] + letter_and_index[1]
+      rotate_by = letter_and_index[0] - letter_and_index[1]
       message << alphabet.rotate(rotate_by).first
     end
     message.join("")
