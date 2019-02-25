@@ -62,14 +62,15 @@ class EncryptionTest < Minitest::Test
 
   def test_find_letter_shift_value
     decryption = Decryption.new("keder ohulw", "02715", "040895")
-    expected = [["k", 3], ["e", 27], ["d",73],
-                ["e", 20], ["r", 3], [" ", 27],
-                ["o", 73], ["h", 20], ["u", 3],
-                ["l", 27], ["w", 73]]
+    expected = [[10, 3], [4, 27], [3, 73],
+                [4, 20], [17, 3], [26, 27],
+                [14, 73], [7, 20], [20, 3],
+                [11, 27], [22, 73]]
     assert_equal expected, decryption.assign_letter_shift
   end
 
   def test_message_can_be_shifted
+    skip
     decryption = Decryption.new("keder ohulw", "02715", "040895")
 
     assert_equal "hello world", decryption.shift_message
