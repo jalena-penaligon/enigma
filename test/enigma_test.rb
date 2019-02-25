@@ -30,7 +30,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_message_is_decrypted
-    skip
     enigma = Enigma.new
 
     expected =  {
@@ -44,48 +43,47 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_you_can_encrypt_a_message_with_todays_date
-    skip
     enigma = Enigma.new
     date = enigma.todays_date
     encrypted = enigma.encrypt("hello world", "02715", date)
 
     expected =  {
-     decryption: "hello world",
+     encryption: "qnhaxisd u ",
      key: "02715",
-     date: "210219"
+     date: "250219"
   }
     assert_equal expected, encrypted
   end
 
   def test_you_can_decrypt_a_message_with_todays_date
-    skip
     enigma = Enigma.new
     date = enigma.todays_date
 
     expected =  {
      decryption: "hello world",
      key: "02715",
-     date: "210219"
+     date: "250219"
   }
-    actual = enigma.decrypt(encrypted[:encryption], "02715", date)
+    actual = enigma.decrypt("qnhaxisd u ", "02715", date)
 
     assert_equal expected, actual
   end
 
   def test_you_can_generate_a_random_key
-    skip
     enigma = Enigma.new
     date = enigma.todays_date
-    key = engima.create_key
+    key = enigma.create_key
+    enigma.encrypt("hello world", date, key)
 
     expected =  {
-     decryption: "hello world",
+     encrypted: "qnhaxisd u ",
      key: key,
-     date: "210219"
+     date: date
   }
-    actual = enigma.encrypt("hello world", date, key)
 
-    assert_equal expected, actual
+    assert_equal 11, expected[:encrypted].length
+    assert_equal 5, expected[:key].length
+    assert_equal 6, expected[:date].length
   end
 
 end

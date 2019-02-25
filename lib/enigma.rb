@@ -22,4 +22,13 @@ class Enigma
     rand.to_s[2..6]
   end
 
+  def decrypt(message, key = create_key, date = todays_date)
+    decryption = Decryption.run(message, key, date)
+    {
+      decryption: decryption,
+      key: key,
+      date: date
+    }
+  end
+
 end
