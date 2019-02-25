@@ -1,6 +1,6 @@
 require './test/test_helper'
 
-class EncryptionTest < Minitest::Test
+class DecryptionTest < Minitest::Test
 
   def test_it_exists
     decryption = Decryption.new("keder ohulw", "02715", "040895")
@@ -70,10 +70,15 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_message_can_be_shifted
-    skip
     decryption = Decryption.new("keder ohulw", "02715", "040895")
 
     assert_equal "hello world", decryption.shift_message
+  end
+
+  def test_run_combines_all_steps
+    decryption = Decryption.run("keder ohulw", "02715", "040895")
+
+    assert_equal "hello world", decryption
   end
 
 end
