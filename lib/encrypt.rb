@@ -1,14 +1,8 @@
 require './lib/enigma'
 require './lib/encryption'
 
-ARGV == ["lib/message.txt", "lib/encrypted.txt"]
-
-file = File.open('lib/message.txt', "r")
-message = file.read
+input = ARGV
+message_file = File.open(input[0], "r")
+message = message_file.read.delete!("\n")
 enigma = Enigma.new
-enigma.encrypt(message)
-
-# cat lib/message.txt
-
-# ruby ./lib/encrypt.rb message.txt encrypted.txt
-# Created 'encrypted.txt' with the key 82648 and date 240818
+encrypted = enigma.encrypt(message)
