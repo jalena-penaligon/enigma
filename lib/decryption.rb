@@ -1,6 +1,6 @@
 class Decryption
   include Shift
-  
+
   attr_reader :key, :date
   attr_accessor :message
 
@@ -20,6 +20,22 @@ class Decryption
     message_and_index = []
     split_message.with_index { |letter,index| message_and_index << [letter, index] }
     message_and_index
+  end
+
+  def assign_shift_index
+    shift_index = find_letter_and_index
+    shift_index.each do |letter_and_index|
+      if letter_and_index[1] > 3
+        letter_and_index[1] = letter_and_index[1] % 4
+      end
+    end
+  end
+
+  def assign_shift_value
+    shift_by = shift_values
+    shift_value = assign_shift_index.each do |letter_and_index|
+      letter_and_index[1] = shift_by[letter_and_index[1]]
+    end
   end
 
 end
