@@ -32,4 +32,13 @@ class EncryptionTest < Minitest::Test
     assert_equal String, decryption.class
   end
 
+  def test_print_message_letters_and_index
+    decryption = Decryption.new("keder ohulw", "02715", "040895")
+    expected = [["k", 0], ["e", 1], ["d",2],
+                ["e", 3], ["r", 4], [" ", 5],
+                ["o", 6], ["h", 7], ["u", 8],
+                ["l", 9], ["w", 10]]
+    assert_equal expected, decryption.find_letter_and_index
+  end
+
 end
