@@ -38,4 +38,24 @@ class Decryption
     end
   end
 
+  def assign_letter_shift
+    alphabet = ("a".."z").to_a << " "
+    letter_shift = assign_shift_value
+    letter_shift.each do |letter_and_index|
+      letter_and_index[0] = alphabet.index(letter_and_index[0])
+    end
+    letter_shift
+  end
+
+  def shift_message
+    alphabet = ("a".."z").to_a << " "
+    rotate_values = assign_letter_shift
+    message = []
+    rotate_values.each do |letter_and_index|
+      rotate_by = letter_and_index[0] + letter_and_index[1]
+      message << alphabet.rotate(rotate_by).first
+    end
+    message.join("")
+  end
+
 end
