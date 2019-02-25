@@ -59,5 +59,4 @@ class Encryption
     end
     message.join("")
   end
-
 end
