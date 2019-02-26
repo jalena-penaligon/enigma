@@ -43,6 +43,12 @@ class CrackTest < Minitest::Test
   def test_order_letter_keys
     crack = Crack.new("vjqtbeaweqihssi", 291018)
 
-    assert_equal ["s", "s", "i", "h"], crack.order_keys
+    assert_equal [["s", 0], ["s", 1], ["i", 2], ["h", 3]], crack.order_keys
+  end
+
+  def test_find_letter_shift_from_0
+    crack = Crack.new("vjqtbeaweqihssi", 291018)
+
+    assert_equal [[18, 0], [18, 1], [8, 2], [7, 3]], crack.reverse_letter_shift
   end
 end
