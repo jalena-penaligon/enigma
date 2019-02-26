@@ -9,3 +9,5 @@ decrypted = enigma.decrypt(encryption, input[2], input[3])
 decrypted_file = File.open(input[1], "w")
 decrypted_file.write(decrypted[:decryption])
 decrypted_file.close
+
+puts "Created '#{input[1]}' with the key #{decrypted[:key]} and date #{decrypted[:date]}"
