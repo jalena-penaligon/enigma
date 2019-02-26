@@ -17,7 +17,7 @@ class Decryption
 
   def shift_message
     alphabet = ("a".."z").to_a << " "
-    rotate_values = assign_letter_shift
+    rotate_values = assign_letter_shift(assign_shift_value)
     message = rotate_values.map do |letter_and_index|
       rotate_by = letter_and_index[0] - letter_and_index[1]
       alphabet.rotate(rotate_by).first

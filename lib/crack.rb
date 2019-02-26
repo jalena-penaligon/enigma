@@ -15,12 +15,7 @@ class Crack
   end
 
   def reverse_letter_shift
-    alphabet = ("a".."z").to_a << " "
-    letter_shift = order_keys
-    letter_shift.each do |letter_and_index|
-      letter_and_index[0] = alphabet.index(letter_and_index[0])
-    end
-    letter_shift
+    assign_letter_shift(order_keys)
   end
 
 end
