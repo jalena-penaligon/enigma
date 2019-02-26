@@ -40,31 +40,9 @@ class CrackTest < Minitest::Test
     assert_equal expected, crack.assign_shift_index
   end
 
-  def test_find_a_letter
-    skip
+  def test_order_letter_keys
     crack = Crack.new("vjqtbeaweqihssi", 291018)
 
-    assert_equal "s", crack.a_key
-  end
-
-  def test_find_b_letter
-    skip
-    crack = Crack.new("vjqtbeaweqihssi", 291018)
-
-    assert_equal "s", crack.a_key
-  end
-
-  def test_find_c_letter
-    skip
-    crack = Crack.new("vjqtbeaweqihssi", 291018)
-
-    assert_equal "i", crack.a_key
-  end
-
-  def test_find_d_letter
-    skip
-    crack = Crack.new("vjqtbeaweqihssi", 291018)
-
-    assert_equal "h", crack.a_key
+    assert_equal ["s", "s", "i", "h"], crack.order_keys
   end
 end
