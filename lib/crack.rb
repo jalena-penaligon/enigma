@@ -14,8 +14,13 @@ class Crack
     end
   end
 
-  def reverse_letter_shift
-    assign_letter_shift(order_keys)
+  def combine_offset
+    shift_and_index = assign_letter_shift(order_keys)
+    date_offset = offset_values
+    shift_and_index.map do |key_and_index|
+      key_and_index << date_offset[key_and_index[1]]
+    end
   end
+
 
 end
