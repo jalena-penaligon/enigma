@@ -22,5 +22,10 @@ class Crack
     end
   end
 
-
+  def subtract_offset
+    offsets = combine_offset
+    offsets.map do |key_index_offset|
+      key_index_offset[0] - key_index_offset[2]
+    end
+  end
 end
