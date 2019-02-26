@@ -60,4 +60,11 @@ class CrackTest < Minitest::Test
     expected = [[18, 0, 6], [18, 1, 3], [8, 2, 2], [7, 3, 4]]
     assert_equal expected, crack.combine_offset
   end
+
+  def test_subtract_offset_value
+    crack = Crack.new("vjqtbeaweqihssi", 291018)
+
+    expected = [12, 15, 6, 3]
+    assert_equal expected, crack.subtract_offset
+  end
 end
