@@ -63,6 +63,6 @@ class ShiftTest < Minitest::Test
                 [22, 32], [14, 8], [17, 14],
                 [11, 86], [3, 32], [26, 8],
                 [4, 14], [13, 86], [3, 32]]
-    assert_equal expected, encryption.assign_letter_shift
+    assert_equal expected, encryption.assign_letter_shift(encryption.assign_shift_value)
   end
 end
