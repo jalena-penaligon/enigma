@@ -20,10 +20,9 @@ class Encryption
   def shift_message
     alphabet = ("a".."z").to_a << " "
     rotate_values = assign_letter_shift
-    message = []
-    rotate_values.each do |letter_and_index|
+    message = rotate_values.map do |letter_and_index|
       rotate_by = letter_and_index[0] + letter_and_index[1]
-      message << alphabet.rotate(rotate_by).first
+      alphabet.rotate(rotate_by).first
     end
     message.join("")
   end
