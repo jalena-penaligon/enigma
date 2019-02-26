@@ -1,1 +1,0 @@
-{:encryption=>"fpoi bxbnnbmriq  jln", :key=>"06726", :date=>"250219"}
