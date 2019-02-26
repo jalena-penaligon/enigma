@@ -1,6 +1,6 @@
-# require 'date'
+require 'date'
 
-module TodaysDate
+module Create
 
   def create_date
     date = Date.today.to_s
@@ -21,4 +21,9 @@ module TodaysDate
     final_date = date_slice(split_date)
     final_date.reverse.join
   end
+
+  def create_key
+    rand.to_s[2..6]
+  end
+  
 end

@@ -1,6 +1,6 @@
 require './test/test_helper'
 
-class DateTest < Minitest::Test
+class CreateTest < Minitest::Test
 
   def test_you_can_create_todays_date
     enigma = Enigma.new
@@ -28,6 +28,14 @@ class DateTest < Minitest::Test
     enigma = Enigma.new
 
     assert_equal 6, enigma.todays_date.length
+  end
+
+  def test_create_key_makes_a_random_key
+    enigma = Enigma.new
+    key = enigma.create_key
+
+    assert_equal 5, key.length
+    assert_equal String, key.class
   end
 
 end

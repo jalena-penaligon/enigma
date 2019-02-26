@@ -1,9 +1,9 @@
-require './lib/todays_date'
+require './lib/create'
 require './lib/encryption'
 require './lib/decryption'
 
 class Enigma
-  include TodaysDate
+  include Create
 
   def encrypt(message, key = create_key, date = todays_date)
     encryption = Encryption.run(message, key, date)
@@ -12,10 +12,6 @@ class Enigma
       key: key,
       date: date
     }
-  end
-
-  def create_key
-    rand.to_s[2..6]
   end
 
   def decrypt(message, key = create_key, date = todays_date)
