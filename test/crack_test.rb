@@ -49,6 +49,22 @@ class CrackTest < Minitest::Test
   def test_find_letter_shift_from_0
     crack = Crack.new("vjqtbeaweqihssi", 291018)
 
-    assert_equal [[18, 0], [18, 1], [8, 2], [7, 3]], crack.reverse_letter_shift
+    expected = [[18, 0], [18, 1], [8, 2], [7, 3]]
+    actual = crack.assign_letter_shift(crack.order_keys)
+    assert_equal expected, actual
+  end
+
+  def test_combine_offset_value
+    crack = Crack.new("vjqtbeaweqihssi", 291018)
+
+    expected = [[18, 0, 6], [18, 1, 3], [8, 2, 2], [7, 3, 4]]
+    assert_equal expected, crack.combine_offset
+  end
+
+  def test_subtract_offset_value
+    crack = Crack.new("vjqtbeaweqihssi", 291018)
+
+    expected = [12, 15, 6, 3]
+    assert_equal expected, crack.subtract_offset
   end
 end
