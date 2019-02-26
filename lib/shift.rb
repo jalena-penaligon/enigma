@@ -51,9 +51,9 @@ module Shift
     end
   end
 
-  def assign_letter_shift
+  def assign_letter_shift(values)
     alphabet = ("a".."z").to_a << " "
-    letter_shift = assign_shift_value
+    letter_shift = values
     letter_shift.each do |letter_and_index|
       letter_and_index[0] = alphabet.index(letter_and_index[0])
     end
